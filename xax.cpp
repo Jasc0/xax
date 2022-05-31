@@ -180,9 +180,7 @@ class Package{
 
 string GetStdoutFromCommand(string cmd);
 void get_packages(vector<Package> &p_vect);
-//void get_packages(pkg_dynarr &p_vect);
 void search_select(string query,vector<Package> p_vect, stringstream &flags, Config conf);
-//void search_select(string query,pkg_dynarr p_vect, Config conf);
 int* str_to_int_arr(string str);
 
 int main(int argc, char* argv[]){
@@ -298,13 +296,10 @@ int* str_to_int_arr(string str, int &size){
 }
 void search_select(string query, vector<Package> p_vect, stringstream &flags, Config conf){
    vector<Package> matched; 
-   //vector<Package>::iterator iter = matched.begin();
    // find any names or descriptions that match the query string
    for (int i =0; i < int(p_vect.size()); i++){
-      //cout << "entered" << endl;
       if ( p_vect.size() && p_vect.at(i).get_name().find(query) < p_vect.at(i).get_name().size()){
 	 matched.push_back(p_vect.at(i));
-	 //iter = matched.insert(iter,p_vect->at(i));
       }
    }
    for (int i =0; i < int(p_vect.size()); i++){
