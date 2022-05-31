@@ -165,12 +165,6 @@ class Package{
 	 else
 	    cout << description << endl;
       }
-      void printe(Config conf, int nw, int index){
-	 cout << name << endl <<"\t"<< description << endl;
-      }
-      void printe(){
-	 cout << name << endl <<"\t"<< description << endl;
-      }
       string get_desc(){ return description; }
       string get_name(){ return name; }
       bool is_installed(){return installed;}
