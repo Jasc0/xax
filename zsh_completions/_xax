@@ -1,0 +1,16 @@
+#compdef xax
+
+_get_xbps_pks() {
+ local options
+  # Generate package name list
+  options=$(xbps-query -Rs "*" | awk '{print $2}' | rev | cut -d - -f2- | rev| tr -d '\r')
+  
+  # Debugging: Print options to check the result
+  print -l $options > /tmp/xax_debug.txt
+
+  # Populate reply array for completion
+  compadd -- ${=options}
+}	
+_arguments -s \
+	'*:Get Package names:_get_xbps_pks'
+
